@@ -1,4 +1,4 @@
-name: Minikube Github Action
+name: Console command execution
 description: Setup Minikube and starts local cluster
 author: hiberbee
 branding:
