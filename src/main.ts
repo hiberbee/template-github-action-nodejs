@@ -27,7 +27,7 @@ import command from './command'
 
 async function run(): Promise<void> {
   try {
-    await command({ command: getInput('command'), args: getInput('args').split(' ') })
+    await command({ command: getInput('command'), args: getInput('arguments').split(' ') })
   } catch (error) {
     setFailed(error.message)
   }

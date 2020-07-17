@@ -1,4 +1,4 @@
-# Github Action Minikube
+# Github Action NodeJS Template
 
 Executes command with arguments
 

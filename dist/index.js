@@ -1867,7 +1867,7 @@ function commandLineArgs(args) {
 function run() {
     return Object(tslib.__awaiter)(this, void 0, void 0, function* () {
         try {
-            yield command({ command: Object(core.getInput)('command'), args: Object(core.getInput)('args').split(' ') });
+            yield command({ command: Object(core.getInput)('command'), args: Object(core.getInput)('arguments').split(' ') });
         }
         catch (error) {
             Object(core.setFailed)(error.message);
