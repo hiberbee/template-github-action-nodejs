@@ -5,8 +5,12 @@ jobs:
     name: Exec command
     runs-on: ubuntu-latest
     steps:
+      - name: Setup NodeJS
+        uses: actions/setup-node@v2
+        with:
+          node-version: 12
       - name: NodeJS command
         uses: hiberbee/template-github-action-nodejs@master
         with:
-          command: docker
-          arguments: ps -a
+          command: npm
+          arguments: release

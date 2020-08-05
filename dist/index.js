@@ -40,7 +40,7 @@ module.exports =
 /******/ 	// the startup function
 /******/ 	function startup() {
 /******/ 		// Load entry module and return exports
-/******/ 		return __webpack_require__(784);
+/******/ 		return __webpack_require__(362);
 /******/ 	};
 /******/ 	// initialize runtime
 /******/ 	runtime(__webpack_require__);
@@ -976,6 +976,35 @@ module.exports = require("assert");
 
 /***/ }),
 
+/***/ 362:
+/***/ (function(__unusedmodule, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(422);
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(tslib__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _actions_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(470);
+/* harmony import */ var _actions_core__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_actions_core__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _actions_exec__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(986);
+/* harmony import */ var _actions_exec__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_actions_exec__WEBPACK_IMPORTED_MODULE_2__);
+
+
+
+function run() {
+    return Object(tslib__WEBPACK_IMPORTED_MODULE_0__.__awaiter)(this, void 0, void 0, function* () {
+        try {
+            yield Object(_actions_exec__WEBPACK_IMPORTED_MODULE_2__.exec)(Object(_actions_core__WEBPACK_IMPORTED_MODULE_1__.getInput)('command'), Object(_actions_core__WEBPACK_IMPORTED_MODULE_1__.getInput)('arguments').split(' '));
+        }
+        catch (error) {
+            Object(_actions_core__WEBPACK_IMPORTED_MODULE_1__.setFailed)(error.message);
+        }
+    });
+}
+run().then(() => console.log('Command was executed'));
+//# sourceMappingURL=index.js.map
+
+/***/ }),
+
 /***/ 422:
 /***/ (function(module) {
 
@@ -1825,60 +1854,6 @@ module.exports = require("fs");
 
 /***/ }),
 
-/***/ 784:
-/***/ (function(__unusedmodule, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-
-// EXTERNAL MODULE: ./node_modules/tslib/tslib.js
-var tslib = __webpack_require__(422);
-
-// EXTERNAL MODULE: ./node_modules/@actions/core/lib/core.js
-var core = __webpack_require__(470);
-
-// EXTERNAL MODULE: ./node_modules/@actions/exec/lib/exec.js
-var exec = __webpack_require__(986);
-
-// CONCATENATED MODULE: ./build/command.js
-
-
-function lowerCamelToHyphen(value) {
-    return value.replace(/[A-Z]/g, m => '-' + m.toLowerCase());
-}
-function commandLineArgs(args) {
-    const commandLineArgs = [];
-    for (const [key, value] of Object.entries(args)) {
-        const argument = value ? `${lowerCamelToHyphen(key)}=${value}` : lowerCamelToHyphen(key);
-        commandLineArgs.push(`--${argument}`);
-    }
-    return commandLineArgs;
-}
-/* harmony default export */ var command = (function (args) {
-    return Object(tslib.__awaiter)(this, void 0, void 0, function* () {
-        yield Object(exec.exec)(args.command, args.args);
-    });
-});
-//# sourceMappingURL=command.js.map
-// CONCATENATED MODULE: ./build/main.js
-
-
-
-function run() {
-    return Object(tslib.__awaiter)(this, void 0, void 0, function* () {
-        try {
-            yield command({ command: Object(core.getInput)('command'), args: Object(core.getInput)('arguments').split(' ') });
-        }
-        catch (error) {
-            Object(core.setFailed)(error.message);
-        }
-    });
-}
-run().then(() => console.log('Command was executed'));
-//# sourceMappingURL=main.js.map
-
-/***/ }),
-
 /***/ 986:
 /***/ (function(__unusedmodule, exports, __webpack_require__) {
 
@@ -1945,36 +1920,6 @@ exports.exec = exec;
 /******/ 		};
 /******/ 	}();
 /******/ 	
-/******/ 	/* webpack/runtime/define property getter */
-/******/ 	!function() {
-/******/ 		// define getter function for harmony exports
-/******/ 		var hasOwnProperty = Object.prototype.hasOwnProperty;
-/******/ 		__webpack_require__.d = function(exports, name, getter) {
-/******/ 			if(!hasOwnProperty.call(exports, name)) {
-/******/ 				Object.defineProperty(exports, name, { enumerable: true, get: getter });
-/******/ 			}
-/******/ 		};
-/******/ 	}();
-/******/ 	
-/******/ 	/* webpack/runtime/create fake namespace object */
-/******/ 	!function() {
-/******/ 		// create a fake namespace object
-/******/ 		// mode & 1: value is a module id, require it
-/******/ 		// mode & 2: merge all properties of value into the ns
-/******/ 		// mode & 4: return value when already ns object
-/******/ 		// mode & 8|1: behave like require
-/******/ 		__webpack_require__.t = function(value, mode) {
-/******/ 			if(mode & 1) value = this(value);
-/******/ 			if(mode & 8) return value;
-/******/ 			if((mode & 4) && typeof value === 'object' && value && value.__esModule) return value;
-/******/ 			var ns = Object.create(null);
-/******/ 			__webpack_require__.r(ns);
-/******/ 			Object.defineProperty(ns, 'default', { enumerable: true, value: value });
-/******/ 			if(mode & 2 && typeof value != 'string') for(var key in value) __webpack_require__.d(ns, key, function(key) { return value[key]; }.bind(null, key));
-/******/ 			return ns;
-/******/ 		};
-/******/ 	}();
-/******/ 	
 /******/ 	/* webpack/runtime/compat get default export */
 /******/ 	!function() {
 /******/ 		// getDefaultExport function for compatibility with non-harmony modules
@@ -1984,6 +1929,17 @@ exports.exec = exec;
 /******/ 				function getModuleExports() { return module; };
 /******/ 			__webpack_require__.d(getter, 'a', getter);
 /******/ 			return getter;
+/******/ 		};
+/******/ 	}();
+/******/ 	
+/******/ 	/* webpack/runtime/define property getter */
+/******/ 	!function() {
+/******/ 		// define getter function for harmony exports
+/******/ 		var hasOwnProperty = Object.prototype.hasOwnProperty;
+/******/ 		__webpack_require__.d = function(exports, name, getter) {
+/******/ 			if(!hasOwnProperty.call(exports, name)) {
+/******/ 				Object.defineProperty(exports, name, { enumerable: true, get: getter });
+/******/ 			}
 /******/ 		};
 /******/ 	}();
 /******/ 	

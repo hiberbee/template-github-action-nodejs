@@ -1,5 +1,5 @@
 name: Console command execution
-description: Setup Minikube and starts local cluster
+description: Github Action NodeJS project template
 author: hiberbee
 branding:
   icon: command

@@ -22,26 +22,15 @@
  * SOFTWARE.
  */
 
+import { getInput, setFailed } from '@actions/core'
 import { exec } from '@actions/exec'
 
-function lowerCamelToHyphen(value: string): string {
-  return value.replace(/[A-Z]/g, m => '-' + m.toLowerCase())
-}
-
-export function commandLineArgs(args: Record<string, string | number | boolean | undefined | null>): string[] {
-  const commandLineArgs = []
-  for (const [key, value] of Object.entries(args)) {
-    const argument = value ? `${lowerCamelToHyphen(key)}=${value}` : lowerCamelToHyphen(key)
-    commandLineArgs.push(`--${argument}`)
+async function run(): Promise<void> {
+  try {
+    await exec(getInput('command'), getInput('arguments').split(' '))
+  } catch (error) {
+    setFailed(error.message)
   }
-  return commandLineArgs
 }
 
-type RunArgs = {
-  args: string[]
-  command: string
-}
-
-export default async function (args: RunArgs): Promise<void> {
-  await exec(args.command, args.args)
-}
+run().then(() => console.log('Command was executed'))
