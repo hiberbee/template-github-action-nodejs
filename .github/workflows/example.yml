@@ -6,11 +6,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Setup NodeJS
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@main
         with:
           node-version: 12
       - name: NodeJS command
-        uses: hiberbee/template-github-action-nodejs@main
+        uses: hiberbee/template-github-action-nodejs@master
         with:
           command: npm
           arguments: run release
