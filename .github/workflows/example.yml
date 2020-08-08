@@ -9,6 +9,8 @@ jobs:
         uses: actions/setup-node@main
         with:
           node-version: 12
+      - name: Checkout sources
+        uses: actions/checkout@main
       - name: NodeJS command
         uses: hiberbee/template-github-action-nodejs@master
         with:
