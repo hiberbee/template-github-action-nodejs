@@ -5,16 +5,13 @@
   "description": "Github Action NodeJS project template",
   "main": "build/index.js",
   "license": "MIT",
-  "engines": {
-    "yarn": ">=1.20"
-  },
   "scripts": {
     "compile": "tsc",
     "clean": "rimraf build",
     "lint": "eslint --fix src/**/*.ts",
-    "build": "yarn compile && ncc build build/index.js",
+    "build": "npm run compile && ncc build build/index.js",
     "start": "cross-env RUNNER_TEMP=build node dist/index.js",
-    "release": "yarn lint && yarn build && yarn clean"
+    "release": "npm run lint && npm run build && npm run clean"
   },
   "repository": {
     "type": "git",
@@ -32,12 +29,10 @@
     "url": "https://github.com/vladyslavvolkov"
   },
   "dependencies": {
+    "@actions/cache": "^1.0.2",
     "@actions/core": "^1.2.4",
     "@actions/exec": "^1.0.4",
     "@actions/io": "^1.0.2",
-    "@actions/github": "^4.0.0",
-    "@actions/http-client": "^1.0.8",
-    "@actions/cache": "^1.0.1",
     "@actions/tool-cache": "^1.6.0"
   },
   "devDependencies": {

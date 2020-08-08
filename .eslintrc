@@ -7,11 +7,5 @@
     "ecmaVersion": 2020,
     "sourceType": "module",
     "ecmaFeatures": { }
-  },
-  "plugins": [
-    "import",
-    "github"
-  ],
-  "rules": { },
-  "settings": { }
+  }
 }

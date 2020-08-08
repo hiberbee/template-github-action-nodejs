@@ -10,7 +10,7 @@ jobs:
         with:
           node-version: 12
       - name: NodeJS command
-        uses: hiberbee/template-github-action-nodejs@master
+        uses: hiberbee/template-github-action-nodejs@main
         with:
           command: npm
-          arguments: release
+          arguments: run release

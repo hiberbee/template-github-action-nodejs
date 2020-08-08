@@ -1000,7 +1000,7 @@ function run() {
         }
     });
 }
-run().then(() => console.log('Command was executed'));
+run();
 //# sourceMappingURL=index.js.map
 
 /***/ }),

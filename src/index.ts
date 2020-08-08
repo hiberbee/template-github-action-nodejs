@@ -33,4 +33,5 @@ async function run(): Promise<void> {
   }
 }
 
-run().then(() => console.log('Command was executed'))
+// noinspection JSIgnoredPromiseFromCall
+run()
